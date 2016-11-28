@@ -19,6 +19,9 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    if @user.supervisor
+      @user.supervisorEmail= @user.supervisor.email
+    end
   end
 
   # POST /users
@@ -42,9 +45,12 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-       # @supervisor = @users.find_by email: params[:supervisor_email]
-        @supervisor = @users.find_by id: params[:supervisor_id]
+        @users = User.all
+        logger.debug params[:supervisorId]
+       @supervisor = @users.find_by email: user_params[:supervisorEmail]
+        #@supervisor = @users.find_by id: params[:supervisorId]
         @user.supervisor = @supervisor
+        @user.save
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -72,6 +78,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :job_title, :job_assignment, :isSupervisor, :supervisor_email)
+      params.require(:user).permit(:first_name, :last_name, :job_title, :job_assignment, :isSupervisor, :supervisorEmail)
     end
 end

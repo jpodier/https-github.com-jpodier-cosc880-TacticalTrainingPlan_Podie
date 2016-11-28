@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  belongs_to :supervisor, :class_name => "User"
-  has_many :employees, :class_name => "User", :foreign_key => "supervisor_id"
+  belongs_to :supervisor, :class_name => "User", :foreign_key => "supervisorId"
+  has_many :employees, :class_name => "User", :foreign_key => "supervisorId"
+
+  attr_accessor :supervisorEmail
 end
