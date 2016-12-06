@@ -6,5 +6,6 @@ class User < ActiveRecord::Base
   belongs_to :supervisor, :class_name => "User", :foreign_key => "supervisorId"
   has_many :employees, :class_name => "User", :foreign_key => "supervisorId"
 
+
   attr_accessor :supervisorEmail
 end
