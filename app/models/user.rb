@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :supervisor, :class_name => "User", :foreign_key => "supervisorId"
   has_many :employees, :class_name => "User", :foreign_key => "supervisorId"
+  has_many :course_requests, :foreign_key => "userId"
 
 
   attr_accessor :supervisorEmail

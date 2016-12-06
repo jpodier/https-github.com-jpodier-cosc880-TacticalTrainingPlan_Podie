@@ -20,5 +20,14 @@
   <%= @user.job_assignment %>
 </p>
 
+<ul>
+
+  <% @user.course_requests.each do |courserequest| %>
+
+<li><%=courserequest.course_name %></li>
+
+<%end%>
+</ul>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
