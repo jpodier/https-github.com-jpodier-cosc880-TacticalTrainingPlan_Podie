@@ -20,14 +20,43 @@
   <%= @user.job_assignment %>
 </p>
 
-<ul>
+<table>
+  <tr>
+    <th>Course Name</th>
+    <th>Course Description</th>
+    <th>Training Method</th>
+    <th>Training Category</th>
+    <th>Tuition Cost</th>
+    <th>Planned Travel Cost</th>
+    <th>Actual Travel Cost</th>
+    <th>Total Cost</th>
+    <th>Location</th>
+    <th>Training Date</th>
+    <th>Completion Status</th>
+    <th>Approval Status</th>
+  </tr>
 
   <% @user.course_requests.each do |courserequest| %>
 
-<li><%=courserequest.course_name %></li>
+<tr>
+  <td><%=courserequest.course_name %></td>
+  <td><%=courserequest.description %></td>
+  <td><%=courserequest.training_method %></td>
+  <td><%=courserequest.training_category %></td>
+  <td><%=courserequest.tuition_cost %></td>
+  <td><%=courserequest.planned_travelcost %></td>
+  <td><%=courserequest.actual_travelcost %></td>
+  <td><%=courserequest.total_cost %></td>
+  <td><%=courserequest.location %></td>
+  <td><%=courserequest.training_date %></td>
+  <td><%=courserequest.completion_status %></td>
+  <td><%=courserequest.approval_status %></td>
+
+</tr>
 
 <%end%>
-</ul>
+</table>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+<%= button_to 'Add A Course Request', course_requests_path(:course_request) %>
