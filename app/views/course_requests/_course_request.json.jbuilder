@@ -1,0 +1,2 @@
+json.extract! course_request, :id, :course_name, :description, :training_method, :training_category, :tuition_cost, :planned_travelcost, :actual_travelcost, :total_cost, :location, :training_date, :completion_status, :approval_status, :created_at, :updated_at
+json.url course_request_url(course_request, format: :json)

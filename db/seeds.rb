@@ -6,9 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-a = User.find (4)
-c = CourseRequest.find(1)
-c.user = a
-c.save
+#a = User.find (4)
+#c = CourseRequest.find(1)
+#c.user = a
+#c.save
 
 

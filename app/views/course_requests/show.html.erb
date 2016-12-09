@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Course name:</strong>
+  <%= @course_request.course_name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @course_request.description %>
+</p>
+
+<p>
+  <strong>Training method:</strong>
+  <%= @course_request.training_method %>
+</p>
+
+<p>
+  <strong>Training category:</strong>
+  <%= @course_request.training_category %>
+</p>
+
+<p>
+  <strong>Tuition cost:</strong>
+  <%= @course_request.tuition_cost %>
+</p>
+
+<p>
+  <strong>Planned travelcost:</strong>
+  <%= @course_request.planned_travelcost %>
+</p>
+
+<p>
+  <strong>Actual travelcost:</strong>
+  <%= @course_request.actual_travelcost %>
+</p>
+
+<p>
+  <strong>Total cost:</strong>
+  <%= @course_request.total_cost %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @course_request.location %>
+</p>
+
+<p>
+  <strong>Training date:</strong>
+  <%= @course_request.training_date %>
+</p>
+
+<p>
+  <strong>Completion status:</strong>
+  <%= @course_request.completion_status %>
+</p>
+
+<p>
+  <strong>Approval status:</strong>
+  <%= @course_request.approval_status %>
+</p>
+
+<%= link_to 'Edit', edit_course_request_path(@course_request) %> |
+<%= link_to 'Back', course_requests_path %>
