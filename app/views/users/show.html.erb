@@ -19,7 +19,7 @@
   <strong>Job assignment:</strong>
   <%= @user.job_assignment %>
 </p>
-
+<h2>My Courses</h2>
 <table>
   <tr>
     <th>Course Name</th>
@@ -56,7 +56,50 @@
 
 <%end%>
 </table>
+<%if current_user.isSupervisor%>
+<h2>My Employees' Course Requests</h2>
+<table>
+  <tr>
+    <th>Last Name</th>
+    <th>First Name</th>
+    <th>Course Name</th>
+    <th>Training Date</th>
+    <th>Approval Status</th>
+  </tr>
+
+  <% @user.employees.each do |employee| %>
+      <% employee.course_requests.each do |courserequest| %>
+          <% if courserequest.approval_status != "ACCEPTED" && courserequest.approval_status != "REJECTED" %>
+      <tr>
+        <td><%=employee.last_name %></td>
+        <td><%=employee.first_name %></td>
+        <td><%=courserequest.course_name %></td>
+        <td><%=courserequest.training_date %></td>
+        <td>
+          <%= form_for(courserequest) do |f| %>
+              <div class="field">
+                <%= f.hidden_field :approval_status, :value => "ACCEPTED" %>
+              </div>
+              <div class="actions">
+                <%= f.submit "Accept" %>
+              </div>
+          <% end %>
+          <%= form_for(courserequest) do |f| %>
+              <div class="field">
+                <%= f.hidden_field :approval_status, :value => "REJECTED" %>
+              </div>
+              <div class="actions">
+                <%= f.submit "Reject" %>
+              </div>
+          <% end %>
+        </td>
+      </tr>
+      <%end %>
+  <%end%>
+      <%end%>
+  <%end%>
+</table>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
-<%= button_to 'Add A Course Request', course_requests_path(:course_request) %>
+<a href="http://localhost:3000/course_requests/new">New Course Request</a>

@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
 
 
   attr_accessor :supervisorEmail
-end
+
+ end

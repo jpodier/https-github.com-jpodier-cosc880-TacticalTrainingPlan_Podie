@@ -31,12 +31,6 @@ ActiveRecord::Schema.define(version: 20161206051041) do
     t.integer  "userId"
   end
 
-  create_table "supervisors", force: :cascade do |t|
-    t.integer "supervisor_id"
-  end
-
-  add_index "supervisors", ["supervisor_id"], name: "index_supervisors_on_supervisor_id"
-
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"

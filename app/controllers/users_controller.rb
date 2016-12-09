@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
-    @user2 = current_user
   end
 
   # GET /users/1
