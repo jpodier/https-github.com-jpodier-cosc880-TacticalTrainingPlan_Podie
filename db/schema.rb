@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206051041) do
+ActiveRecord::Schema.define(version: 20161212082728) do
 
   create_table "course_requests", force: :cascade do |t|
     t.string   "course_name"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20161206051041) do
     t.boolean  "isSupervisor"
     t.integer  "supervisorId"
     t.boolean  "isAdmin"
+    t.string   "supervisorEmail"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

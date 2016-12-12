@@ -20,6 +20,12 @@
   <%= @user.job_assignment %>
 </p>
 
+<p>
+  <strong>Supervisor's Email:</strong>
+  <%= @user.supervisorEmail %>
+</p>
+
+
 <%= link_to 'Edit Profile', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
 
@@ -56,6 +62,7 @@
   <td><%=courserequest.completion_status %></td>
   <td><%=courserequest.approval_status %></td>
 
+  <td><%= link_to 'Show', courserequest %></td>
 </tr>
 
 <%end%>
