@@ -36,9 +36,9 @@
         <td><%= course_request.training_date %></td>
         <td><%= course_request.completion_status %></td>
         <td><%= course_request.approval_status %></td>
-        <td><%= link_to 'Show', course_request %></td>
-        <td><%= link_to 'Edit', edit_course_request_path(course_request) %></td>
-        <td><%= link_to 'Destroy', course_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', course_request, class: "btn btn-default" %></td>
+        <td><%= link_to 'Edit', edit_course_request_path(course_request), class: "btn btn-default" %></td>
+        <td><%= link_to 'Destroy', course_request, class: "btn btn-default", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -46,4 +46,4 @@
 
 <br>
 
-<%= link_to 'New Course request', new_course_request_path %>
+<%= link_to 'New Course request', new_course_request_path, class: "btn btn-default" %>

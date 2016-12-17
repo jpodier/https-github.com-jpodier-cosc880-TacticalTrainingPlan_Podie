@@ -26,50 +26,60 @@
 </p>
 
 
-<%= link_to 'Edit Profile', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Edit Profile', edit_user_path(@user), class: "btn btn-default" %> |
+<%= link_to 'Back', users_path, class: "btn btn-default" %>
 
 <h2>My Courses</h2>
-<table>
+<table class="table">
   <tr>
     <th>Course Name</th>
-    <th>Course Description</th>
     <th>Training Method</th>
     <th>Training Category</th>
-    <th>Tuition Cost</th>
-    <th>Planned Travel Cost</th>
-    <th>Actual Travel Cost</th>
     <th>Total Cost</th>
     <th>Location</th>
     <th>Training Date</th>
     <th>Completion Status</th>
     <th>Approval Status</th>
+    <th></th>
   </tr>
 
   <% @user.course_requests.each do |courserequest| %>
 
 <tr>
   <td><%=courserequest.course_name %></td>
-  <td><%=courserequest.description %></td>
   <td><%=courserequest.training_method %></td>
   <td><%=courserequest.training_category %></td>
-  <td><%=courserequest.tuition_cost %></td>
-  <td><%=courserequest.planned_travelcost %></td>
-  <td><%=courserequest.actual_travelcost %></td>
   <td><%=courserequest.total_cost %></td>
   <td><%=courserequest.location %></td>
   <td><%=courserequest.training_date %></td>
   <td><%=courserequest.completion_status %></td>
   <td><%=courserequest.approval_status %></td>
 
-  <td><%= link_to 'Show', courserequest %></td>
+  <td><%= button_to 'Show', courserequest,class: "btn btn-primary",method: 'get' %></td>
 </tr>
-
 <%end%>
 </table>
 <%if current_user.isSupervisor%>
+    <h2>My Employees</h2>
+    <table class="table">
+      <tr>
+        <th>Last Name</th>
+        <th>First Name</th>
+        <th>Job Title</th>
+        <th>Job Assignment</th>
+      </tr>
+      <% @user.employees.each do |employee| %>
+                  <tr>
+                    <td><%= link_to employee.last_name,employee %></td>
+                    <td><%=employee.first_name %></td>
+                    <td><%=employee.job_title %></td>
+                    <td><%=employee.job_assignment %></td>
+                  </tr>
+      <%end %>
+      </table>
+
 <h2>My Employees' Course Requests</h2>
-<table>
+<table class="table">
   <tr>
     <th>Last Name</th>
     <th>First Name</th>
@@ -108,7 +118,7 @@
       <%end %>
   <%end%>
       <%end%>
-  <%end%>
+  <%end %>
 </table>
 
-<a href="http://localhost:3000/course_requests/new">New Course Request</a>
+<a class="btn btn-default" role="button" href="http://localhost:3000/course_requests/new">New Course Request</a>

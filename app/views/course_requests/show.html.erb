@@ -60,6 +60,6 @@
   <%= @course_request.approval_status %>
 </p>
 
-<%= link_to 'Edit', edit_course_request_path(@course_request) %> |
-<%= link_to 'Back', user_path(current_user) %>
+<%= link_to 'Edit', edit_course_request_path(@course_request), class: "btn btn-default" %> |
+<%= link_to 'Back', user_path(current_user), class: "btn btn-default" %>
 

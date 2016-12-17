@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
   has_many :employees, :class_name => "User", :foreign_key => "supervisorId"
   has_many :course_requests, :foreign_key => "userId"
 
-  validates :first_name, :last_name, :job_title, presence: true
   attr_accessor :supervisorEmail
 
  end

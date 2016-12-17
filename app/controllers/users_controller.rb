@@ -11,6 +11,9 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    if @user.supervisor
+      @user.supervisorEmail= @user.supervisor.email
+    end
   end
 
   # GET /users/new
