@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Course Requests</h1>
+<%if(current_user.isAdmin)%>
 
 <table>
   <thead>
@@ -46,4 +47,10 @@
 
 <br>
 
-<%= link_to 'New Course request', new_course_request_path, class: "btn btn-default" %>
+    <%= link_to 'New Course request', new_course_request_path, class: "btn btn-default" %>
+
+<%else%>
+    <p>ONLY ADMINS CAN VIEW ALL COURSES</p>
+    <%end%>
+
+

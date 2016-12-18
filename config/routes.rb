@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'report/index'
 
+  # Help route:
   get 'help/index'
 
   get 'welcome/index'
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
   #   get 'products/:id' => 'catalog#view'
 
   # Help route:
-   #get 'help/index' => 'help#index'
+  # get 'help/index' => 'help#index'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

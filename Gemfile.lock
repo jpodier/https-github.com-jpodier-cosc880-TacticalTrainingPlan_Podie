@@ -48,9 +48,9 @@ GEM
     coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.11.1)
+    coffee-script-source (1.12.2)
     commonjs (0.2.7)
-    concurrent-ruby (1.0.2)
+    concurrent-ruby (1.0.3)
     debug_inspector (0.0.2)
     devise (4.2.0)
       bcrypt (~> 3.0)
